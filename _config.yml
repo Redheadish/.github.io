@@ -1,0 +1,14 @@
+title: "RedHead-ish Tech Blog"
+description : "I read manuals so You don't have to."
+theme: minima 
+
+markdown: kramdown
+
+permalink: /:categories/:year/:month/:day/:title/
+
+header_pages:
+  - about.md
+  - categories.md
+  - tags.md
+
+url: "https://redheadish.github.io"
