@@ -16,37 +16,42 @@ layout: default
 
   <section class="post-content">
     {{ content }}
+  </section>
 
-    <hr>
+  <hr>
 
-<section class="related-posts">
-  <h3>Related posts</h3>
-  <ul>
-  {% assign related = site.posts | where_exp: "p", "p.url != page.url" %}
-  {% assign shown = 0 %}
+  <section class="related-posts">
+    <h3>Related posts</h3>
 
-  {% for p in related %}
-    {% assign overlap = 0 %}
-    {% for t in p.tags %}
-      {% if page.tags contains t %}
-        {% assign overlap = overlap | plus: 1 %}
-      {% endif %}
-    {% endfor %}
+    {% assign related = site.posts | where_exp: "p", "p.url != page.url" %}
+    {% assign shown = 0 %}
 
-    {% if overlap >= 2 %}
-      <li>
-        <a href="{{ p.url }}">{{ p.title }}</a>
-      </li>
-      {% assign shown = shown | plus: 1 %}
+    <ul>
+      {% for p in related %}
+        {% assign overlap = 0 %}
+
+        {% for t in p.tags %}
+          {% if page.tags contains t %}
+            {% assign overlap = overlap | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+
+        {% if overlap >= 2 %}
+          <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+          {% assign shown = shown | plus: 1 %}
+        {% endif %}
+
+        {% if shown >= 5 %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    {% if shown == 0 %}
+      <p style="opacity:0.7; font-size:0.95em;">
+        No related posts yet — add another post with similar tags.
+      </p>
     {% endif %}
-
-    {% if shown >= 5 %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
-  </ul>
-</section>
-
   </section>
 
 </article>
