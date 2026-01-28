@@ -54,6 +54,20 @@ main {
   padding-left: 1.1rem;
 }
 
+  .post-categories {
+  margin: 0.4rem 0 0.8rem;
+  opacity: 0.75;
+  font-size: 0.95em;
+}
+
+.post-categories a {
+  text-decoration: none;
+}
+
+.post-categories a:hover {
+  text-decoration: underline;
+}
+
 
 }
 
