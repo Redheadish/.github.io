@@ -13,7 +13,7 @@ _No topics yet. Categories will appear automatically as posts are added._
 {% assign name = cat[0] %}
 {% assign posts = cat[1] %}
 
-## {{ name }} ({{ posts | size }})
+## [{{ name }}](/topics/{{ name | slugify }}/) ({{ posts | size }})
 
 {% for post in posts %}
 - [{{ post.title }}]({{ post.url }})
