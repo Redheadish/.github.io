@@ -21,6 +21,31 @@ body::before {
   z-index: -1;
 }
 
+/* --- Syntax highlighting (Rouge) --- */
+
+.highlight {
+  background: transparent;
+}
+
+.highlight pre {
+  margin: 0;
+}
+
+.highlight .k { color: #7c4dff; }   /* keywords */
+.highlight .s { color: #2e7d32; }   /* strings */
+.highlight .c { color: #6a737d; font-style: italic; } /* comments */
+.highlight .n { color: inherit; }   /* names */
+.highlight .o { color: #555; }      /* operators */
+.highlight .m { color: #b45309; }   /* numbers */
+
+@media (prefers-color-scheme: dark) {
+  .highlight .k { color: #b39ddb; }
+  .highlight .s { color: #81c784; }
+  .highlight .c { color: #9aa0a6; }
+  .highlight .m { color: #f6c177; }
+}
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {
