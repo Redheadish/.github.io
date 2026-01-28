@@ -17,6 +17,31 @@ main {
 .related-posts ul {
   list-style: none;
   padding-left: 0;
+
+.site-header {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.nav {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: inherit;
+  opacity: 0.85;
+}
+
+.nav a:hover {
+  opacity: 1;
+}
+
 }
 
 .related-posts li {
