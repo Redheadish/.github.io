@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Chaos is the default state. Reliability is an active process."
-categories: [reliability]
+categories: [reliability, virtualization, networking]
 tags: [sre, chaos, reliability]
 lang: en
 ---
