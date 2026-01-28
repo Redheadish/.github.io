@@ -8,7 +8,9 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: system-ui, sans-serif;
+  min-height: 100vh;
 }
+
 
 body::before {
   content: "";
@@ -48,6 +50,15 @@ main {
   list-style: none;
   padding-left: 0;
 }
+
+.post-content {
+  line-height: 1.6;
+}
+
+.post-content p {
+  margin-bottom: 1rem;
+}
+
 
 .related-posts li {
   margin-bottom: 0.4rem;
