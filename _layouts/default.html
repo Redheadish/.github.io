@@ -9,9 +9,22 @@
 
 <body>
 
+<header class="site-header">
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="/topics/">Topics</a>
+    <a href="/about/">About</a>
+  </nav>
+</header>
+
 <main>
   {{ content }}
 </main>
+
+<footer class="site-footer">
+  <p>© {{ site.title }}</p>
+</footer>
 
 <!-- GoatCounter -->
 <script data-goatcounter="https://rh-notes.goatcounter.com/count"
@@ -19,3 +32,4 @@
 
 </body>
 </html>
+
