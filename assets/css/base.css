@@ -75,3 +75,22 @@ main {
   margin-bottom: 0.4rem;
 }
 
+
+.blog-item {
+  margin-bottom: 2rem;
+}
+
+.blog-item h2 {
+  margin-bottom: 0.3rem;
+}
+
+.blog-meta {
+  font-size: 0.9em;
+  opacity: 0.6;
+  margin-bottom: 0.8rem;
+}
+
+.blog-excerpt {
+  line-height: 1.6;
+  opacity: 0.9;
+}
