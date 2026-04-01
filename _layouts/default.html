@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <title>{{ page.title }} | {{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/assets/css/base.css">
-  <a href="/tags/">Tags</a>
+  <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">
 </head>
 
 <body>
 
 <header class="site-header">
   <nav class="nav">
-    <a href="/">Home</a>
-    <a href="/blog/">Blog</a>
-    <a href="/topics/">Topics</a>
-    <a href="/about/">About</a>
+    <a href="{{ '/' | relative_url }}">Home</a>
+    <a href="{{ '/blog/' | relative_url }}">Blog</a>
+    <a href="{{ '/topics/' | relative_url }}">Topics</a>
+    <a href="{{ '/tags/' | relative_url }}">Tags</a>
+    <a href="{{ '/about/' | relative_url }}">About</a>
   </nav>
 </header>
 
@@ -33,4 +33,3 @@
 
 </body>
 </html>
-
