@@ -13,10 +13,10 @@ _No topics yet. Categories will appear automatically as posts are added._
 {% assign name = cat[0] %}
 {% assign posts = cat[1] %}
 
-## [{{ name }}](/topics/{{ name | slugify }}/) ({{ posts | size }})
+## [{{ name }}]({{ '/topics/' | relative_url }}{{ name | slugify }}/) ({{ posts | size }})
 
 {% for post in posts %}
-- [{{ post.title }}]({{ post.url }})
+- [{{ post.title }}]({{ post.url | relative_url }})
 {% endfor %}
 
 {% endfor %}
