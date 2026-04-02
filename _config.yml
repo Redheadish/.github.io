@@ -1,8 +1,9 @@
 title: "RedHead-ish Tech Blog"
-description : "I read manuals so You don't have to."
+description: "I read manuals, so You don't have to."
 theme: minima 
 
 markdown: kramdown
+highlighter: rouge
 
 permalink: /:categories/:year/:month/:day/:title/
 
