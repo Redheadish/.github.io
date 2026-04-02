@@ -6,7 +6,7 @@ layout: page
 {% assign posts = site.categories[cat] %}
 
 <p style="opacity:0.75; margin-bottom: 1rem;">
-  <a href="/topics/">← Back to Topics</a>
+  <a href="{{ '/topics/' | relative_url }}">← Back to Topics</a>
 </p>
 
 <h2 style="margin-top: 0;">{{ page.title }} ({{ posts | size }})</h2>
@@ -14,7 +14,7 @@ layout: page
 {% if posts and posts.size > 0 %}
   <ul>
     {% for post in posts %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
 {% else %}
