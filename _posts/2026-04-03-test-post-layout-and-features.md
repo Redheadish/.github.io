@@ -2,7 +2,7 @@
 layout: post
 title: "Test Post: Layout, Formatting, and Blog Features"
 categories: [reliability]
-tags: [test, layout, markdown, giscus, goatcounter]
+tags: [test, layout, markdown, giscus, goatcounter, chaos, sre]
 lang: en
 ---
 
