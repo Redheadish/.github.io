@@ -5,23 +5,20 @@ layout: default
 <article class="post">
 
   <header class="post-header">
-  <h1>{{ page.title }}</h1>
+    <h1>{{ page.title }}</h1>
 
-  {% if page.categories %}
-    <p class="post-categories">
-      {% for c in page.categories %}
-        <a href="/topics/{{ c | slugify }}/">{{ c }}</a>{% unless forloop.last %}, {% endunless %}
-      {% endfor %}
-    </p>
-  {% endif %}
+    {% if page.categories %}
+      <p class="post-categories">
+        {% for c in page.categories %}
+          <a href="{{ '/topics/' | append: c | append: '/' | relative_url }}">{{ c }}</a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </p>
+    {% endif %}
 
-  <div class="post-meta">
-    <span class="views">
-      👁 <span data-goatcounter-count="{{ page.url }}">0</span>
-    </span>
-  </div>
-</header>
-
+    <div class="post-meta">
+      <span>👁 <span data-goatcounter-count="{{ page.url }}">0</span></span>
+    </div>
+  </header>
 
   <section class="post-content">
     {{ content }}
@@ -46,7 +43,7 @@ layout: default
         {% endfor %}
 
         {% if overlap >= 2 %}
-          <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+          <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
           {% assign shown = shown | plus: 1 %}
         {% endif %}
 
@@ -61,6 +58,27 @@ layout: default
         No related posts yet — add another post with similar tags.
       </p>
     {% endif %}
+  </section>
+
+  <hr>
+
+  <section class="comments">
+    <script src="https://giscus.app/client.js"
+            data-repo="Redheadish/.github.io"
+            data-repo-id="R_kgDORCk5kw"
+            data-category="Announcements"
+            data-category-id="DIC_kwDORCk5k84C56bz"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
   </section>
 
 </article>
