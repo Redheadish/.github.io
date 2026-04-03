@@ -94,3 +94,7 @@ main {
   line-height: 1.6;
   opacity: 0.9;
 }
+
+.comments {
+  margin-top: 2rem;
+}
