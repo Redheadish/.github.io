@@ -2,7 +2,7 @@
 layout: post
 title: "Chaos is the default state. Reliability is an active process."
 categories: [reliability]
-tags: [sre, chaos, reliability]
+tags: [sre, chaos, reliability, test, giscus, goatcounter]
 lang: en
 ---
 
