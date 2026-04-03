@@ -16,7 +16,7 @@ _No tags yet._
 ## {{ name }} ({{ posts | size }})
 
 {% for post in posts %}
-- [{{ post.title }}]({{ post.url }})
+- [{{ post.title }}]({{ post.url | relative_url }})
 {% endfor %}
 
 {% endfor %}
