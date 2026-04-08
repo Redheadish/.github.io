@@ -3,34 +3,37 @@ layout: page
 title: Home
 ---
 
-# RedHead-ish Tech Blog
+<div class="hero">
+  <h1>RedHead-ish Tech Blog</h1>
+  <p class="hero-subtitle">
+    Technical notes on reliability, networking, virtualization, and infrastructure.
+  </p>
+</div>
 
-Technical notes on systems, reliability, networking, virtualization, and infrastructure.
+<section class="home-section">
+  <h2>Latest posts</h2>
 
-## Latest posts
+  {% for post in site.posts limit:3 %}
+    <article class="home-post-card">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p class="blog-date">{{ post.date | date: "%Y-%m-%d" }}</p>
+    </article>
+  {% endfor %}
+</section>
 
-{% for post in site.posts limit:3 %}
-### [{{ post.title }}]({{ post.url | relative_url }})
+<section class="home-section">
+  <h2>Topics</h2>
+  <div class="topic-links">
+    <a href="{{ '/topics/reliability/' | relative_url }}">Reliability</a>
+    <a href="{{ '/topics/' | relative_url }}">All topics</a>
+    <a href="{{ '/tags/' | relative_url }}">Tags</a>
+  </div>
+</section>
 
-<p class="blog-date">
-  {{ post.date | date: "%Y-%m-%d" }}
-</p>
-
-{% if post.excerpt %}
-<p class="blog-excerpt">
-  {{ post.excerpt | strip_html | truncate: 140 }}
-</p>
-{% endif %}
-
-{% endfor %}
-
-## Topics
-
-- [Reliability]({{ '/topics/reliability/' | relative_url }})
-- [Topics]({{ '/topics/' | relative_url }})
-- [Tags]({{ '/tags/' | relative_url }})
-
-## About this blog
-
-This site is a growing technical notebook.
-It is used for publishing structured notes, testing layouts, and building a public engineering portfolio.
+<section class="home-section">
+  <h2>About this blog</h2>
+  <p>
+    This site is a growing technical notebook used for publishing structured notes,
+    testing ideas, and building a public engineering portfolio.
+  </p>
+</section>
