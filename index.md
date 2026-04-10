@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Home
+title: ""
 ---
 
 <div class="hero">
@@ -22,18 +22,7 @@ title: Home
 </section>
 
 <section class="home-section">
-  <h2>Topics</h2>
-  <div class="topic-links">
-    <a href="{{ '/topics/reliability/' | relative_url }}">Reliability</a>
-    <a href="{{ '/topics/' | relative_url }}">All topics</a>
-    <a href="{{ '/tags/' | relative_url }}">Tags</a>
-  </div>
-</section>
-
-<section class="home-section">
-  <h2>About this blog</h2>
   <p>
-    This site is a growing technical notebook used for publishing structured notes,
-    testing ideas, and building a public engineering portfolio.
+    A growing technical notebook for structured notes, experiments, and public engineering writing.
   </p>
 </section>
