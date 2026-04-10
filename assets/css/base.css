@@ -241,3 +241,25 @@ hr {
   color: var(--muted);
   margin: 0 0 3rem;
 }
+
+.home-post-card {
+  padding: 1rem 0 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.home-post-card h3 {
+  margin: 0 0 0.45rem;
+}
+
+.home-post-card .blog-date {
+  margin: 0;
+}
+
+.nav a {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
