@@ -106,6 +106,7 @@ a:hover {
 .page-content,
 .post-content {
   max-width: 720px;
+  font-size: 1.04rem;
 }
 
 .page-content p,
