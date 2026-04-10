@@ -1,7 +1,8 @@
 :root {
-  --bg: #f8f8f7;
-  --text: #171717;
-  --muted: #666;
+  --bg: #f7f7f5;
+  --panel: #ffffff;
+  --text: #1a1a1a;
+  --muted: #6a6a6a;
   --accent: #6f5cff;
   --border: rgba(0, 0, 0, 0.08);
 }
@@ -14,7 +15,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
 }
 
@@ -29,11 +30,11 @@ a:hover {
 
 .site-header {
   border-bottom: 1px solid var(--border);
-  background: rgba(248, 248, 247, 0.95);
+  background: rgba(247, 247, 245, 0.96);
 }
 
 .site-header-inner {
-  max-width: 980px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 1rem 1.25rem;
   display: flex;
@@ -49,8 +50,8 @@ a:hover {
 
 .nav {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .nav a {
@@ -61,8 +62,8 @@ a:hover {
   color: var(--text);
 }
 
-main {
-  max-width: 980px;
+.site-main {
+  max-width: 960px;
   margin: 0 auto;
   padding: 2rem 1.25rem 3rem;
 }
@@ -73,43 +74,38 @@ main {
 }
 
 .site-footer-inner {
-  max-width: 980px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 1rem 1.25rem;
   color: var(--muted);
 }
 
-.hero {
-  padding: 1rem 0 0.5rem;
+.page,
+.post {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 2rem;
 }
 
-.hero h1 {
-  margin: 0 0 0.75rem;
-  font-size: 2.5rem;
+.page-header h1,
+.post-header h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 2.4rem;
   line-height: 1.1;
 }
 
-.hero-subtitle {
-  max-width: 42rem;
-  color: var(--muted);
-  font-size: 1.05rem;
+.page-content p,
+.post-content p {
+  margin-bottom: 1rem;
 }
 
-.home-section {
-  margin-top: 2rem;
-}
-
-.home-post-card {
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.home-post-card h3 {
-  margin: 0 0 0.35rem;
-}
-
-.blog-item {
-  margin-bottom: 1.25rem;
+.page-content ul,
+.page-content ol,
+.post-content ul,
+.post-content ol {
+  padding-left: 1.3rem;
 }
 
 .blog-date,
@@ -120,27 +116,10 @@ main {
   font-size: 0.92rem;
 }
 
-.page,
-.post {
-  background: transparent;
-}
-
-.page-header h1,
-.post-header h1 {
-  margin-top: 0;
-  margin-bottom: 0.6rem;
-  line-height: 1.15;
-}
-
-.post-content p {
-  margin-bottom: 1rem;
-}
-
-.post-content ul,
-.post-content ol,
-.page-content ul,
-.page-content ol {
-  padding-left: 1.25rem;
+.home-post-card,
+.blog-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
 blockquote {
@@ -198,6 +177,7 @@ hr {
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #111216;
+    --panel: #1a1c22;
     --text: #f1f1f1;
     --muted: #a7a7a7;
     --accent: #a391ff;
@@ -205,7 +185,7 @@ hr {
   }
 
   .site-header {
-    background: rgba(17, 18, 22, 0.95);
+    background: rgba(17, 18, 22, 0.96);
   }
 
   blockquote {
@@ -227,15 +207,17 @@ hr {
     align-items: flex-start;
   }
 
-  .nav {
-    gap: 0.8rem;
+  .page,
+  .post {
+    padding: 1.25rem;
   }
 
-  .hero h1 {
+  .page-header h1,
+  .post-header h1 {
     font-size: 2rem;
   }
 
-  main {
+  .site-main {
     padding: 1.25rem 1rem 2rem;
   }
 }
