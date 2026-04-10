@@ -5,7 +5,7 @@ title: ""
 
 # RedHead-ish Tech Blog
 
-A personal technical blog on reliability, networking, virtualization, and infrastructure.
+Notes on reliability, networking, virtualization, and infrastructure.
 
 ## Latest posts
 
