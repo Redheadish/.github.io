@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }} | {{ site.title }}</title>
+  <title>{% if page.title and page.title != "" %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">
 </head>
-
 <body>
 
 <header class="site-header">
-  <nav class="nav">
-    <a href="{{ '/' | relative_url }}">Home</a>
-    <a href="{{ '/blog/' | relative_url }}">Blog</a>
-    <a href="{{ '/topics/' | relative_url }}">Topics</a>
-    <a href="{{ '/tags/' | relative_url }}">Tags</a>
-    <a href="{{ '/about/' | relative_url }}">About</a>
-  </nav>
+  <div class="site-header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+    <nav class="nav">
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/topics/' | relative_url }}">Topics</a>
+      <a href="{{ '/tags/' | relative_url }}">Tags</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+    </nav>
+  </div>
 </header>
 
 <main>
@@ -24,10 +26,11 @@
 </main>
 
 <footer class="site-footer">
-  <p>© {{ site.title }}</p>
+  <div class="site-footer-inner">
+    <p>© {{ site.title }}</p>
+  </div>
 </footer>
 
-<!-- GoatCounter -->
 <script data-goatcounter="https://rh-notes.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
