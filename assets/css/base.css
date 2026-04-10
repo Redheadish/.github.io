@@ -1,44 +1,241 @@
+:root {
+  --bg: #f8f8f7;
+  --text: #171717;
+  --muted: #666;
+  --accent: #6f5cff;
+  --border: rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: rgba(248, 248, 247, 0.95);
+}
+
+.site-header-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: var(--muted);
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+}
+
+.site-footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  color: var(--muted);
+}
+
+.hero {
+  padding: 1rem 0 0.5rem;
+}
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.home-section {
+  margin-top: 2rem;
+}
+
+.home-post-card {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.home-post-card h3 {
+  margin: 0 0 0.35rem;
+}
+
+.blog-item {
+  margin-bottom: 1.25rem;
+}
+
+.blog-date,
+.blog-meta,
+.post-meta,
+.post-categories {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.page,
+.post {
+  background: transparent;
+}
+
+.page-header h1,
+.post-header h1 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  line-height: 1.15;
+}
+
+.post-content p {
+  margin-bottom: 1rem;
+}
+
+.post-content ul,
+.post-content ol,
+.page-content ul,
+.page-content ol {
+  padding-left: 1.25rem;
+}
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.95em;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 0.12em 0.35em;
+  border-radius: 6px;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border);
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.related-posts {
+  margin-top: 2rem;
+}
+
+.related-posts ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.related-posts li {
+  margin-bottom: 0.4rem;
+}
+
+.comments {
+  margin-top: 2rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #111216;
-    --panel: rgba(24, 25, 31, 0.78);
-    --text: #f2f2f2;
-    --muted: #a5a1ac;
+    --text: #f1f1f1;
+    --muted: #a7a7a7;
     --accent: #a391ff;
-    --border: rgba(255,255,255,0.08);
-    --shadow: 0 10px 30px rgba(0,0,0,0.28);
-  }
-
-  body {
-    background:
-      radial-gradient(circle at top left, rgba(163, 145, 255, 0.12), transparent 35%),
-      radial-gradient(circle at bottom right, rgba(128, 114, 255, 0.08), transparent 30%),
-      var(--bg);
+    --border: rgba(255, 255, 255, 0.12);
   }
 
   .site-header {
-    background: rgba(17, 18, 22, 0.82);
-  }
-
-  code {
-    background: rgba(255,255,255,0.08);
+    background: rgba(17, 18, 22, 0.95);
   }
 
   blockquote {
-    background: rgba(163, 145, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
   }
 
-  .topic-links a {
-    background: rgba(255,255,255,0.03);
+  code {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  pre {
+    background: rgba(255, 255, 255, 0.06);
   }
 }
 
-@media (max-width: 900px) {
-  .home-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 700px) {
+  .site-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .hero {
-    padding-top: 2.8rem;
+  .nav {
+    gap: 0.8rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  main {
+    padding: 1.25rem 1rem 2rem;
   }
 }
