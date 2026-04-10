@@ -3,7 +3,6 @@ layout: default
 ---
 
 <article class="post">
-
   <header class="post-header">
     <h1>{{ page.title }}</h1>
 
@@ -35,7 +34,6 @@ layout: default
     <ul>
       {% for p in related %}
         {% assign overlap = 0 %}
-
         {% for t in p.tags %}
           {% if page.tags contains t %}
             {% assign overlap = overlap | plus: 1 %}
@@ -54,13 +52,11 @@ layout: default
     </ul>
 
     {% if shown == 0 %}
-      <p style="opacity:0.7; font-size:0.95em;">
-        No related posts yet — add another post with similar tags.
+      <p style="color: var(--muted);">
+        No related posts yet.
       </p>
     {% endif %}
   </section>
-
-  <hr>
 
   <section class="comments">
     <script src="https://giscus.app/client.js"
@@ -80,5 +76,4 @@ layout: default
             async>
     </script>
   </section>
-
 </article>
