@@ -267,3 +267,11 @@ hr {
     gap: 12px;
   }
 }
+
+.post-header {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.post-content
