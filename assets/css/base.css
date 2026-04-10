@@ -1,8 +1,7 @@
 :root {
-  --bg: #f7f7f5;
-  --panel: #ffffff;
+  --bg: #f8f8f7;
   --text: #1a1a1a;
-  --muted: #6a6a6a;
+  --muted: #6b6b6b;
   --accent: #6f5cff;
   --border: rgba(0, 0, 0, 0.08);
 }
@@ -11,8 +10,12 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
+}
+
+body {
   background: var(--bg);
   color: var(--text);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -30,32 +33,32 @@ a:hover {
 
 .site-header {
   border-bottom: 1px solid var(--border);
-  background: rgba(247, 247, 245, 0.96);
+  background: #f8f8f7;
 }
 
 .site-header-inner {
-  max-width: 960px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 1rem 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  padding: 18px 24px;
 }
 
 .brand {
+  display: block;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--text);
+  margin-bottom: 10px;
 }
 
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 18px;
 }
 
 .nav a {
   color: var(--muted);
+  font-size: 1rem;
 }
 
 .nav a:hover {
@@ -63,49 +66,59 @@ a:hover {
 }
 
 .site-main {
-  max-width: 960px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 2rem 1.25rem 3rem;
+  padding: 40px 24px 56px;
 }
 
 .site-footer {
   border-top: 1px solid var(--border);
-  margin-top: 3rem;
+  margin-top: 48px;
 }
 
 .site-footer-inner {
-  max-width: 960px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 1rem 1.25rem;
+  padding: 18px 24px;
   color: var(--muted);
 }
 
 .page,
 .post {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 2rem;
+  margin: 0;
 }
 
 .page-header h1,
 .post-header h1 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 2.4rem;
-  line-height: 1.1;
+  margin: 0 0 18px;
+  font-size: 3rem;
+  line-height: 1.05;
+  color: var(--text);
+}
+
+.page-content,
+.post-content {
+  max-width: 760px;
 }
 
 .page-content p,
 .post-content p {
-  margin-bottom: 1rem;
+  margin: 0 0 16px;
 }
 
 .page-content ul,
 .page-content ol,
 .post-content ul,
 .post-content ol {
-  padding-left: 1.3rem;
+  padding-left: 22px;
+  margin: 0 0 16px;
+}
+
+.blog-item,
+.home-post-card {
+  max-width: 760px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .blog-date,
@@ -113,18 +126,20 @@ a:hover {
 .post-meta,
 .post-categories {
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
 }
 
-.home-post-card,
-.blog-item {
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--border);
+.post-categories {
+  margin: 0 0 10px;
+}
+
+.post-meta {
+  margin: 0 0 22px;
 }
 
 blockquote {
-  margin: 1.2rem 0;
-  padding: 0.85rem 1rem;
+  margin: 22px 0;
+  padding: 12px 16px;
   border-left: 3px solid var(--accent);
   background: rgba(0, 0, 0, 0.03);
 }
@@ -139,7 +154,7 @@ code {
 
 pre {
   overflow-x: auto;
-  padding: 1rem;
+  padding: 16px;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid var(--border);
@@ -152,7 +167,8 @@ pre code {
 }
 
 .related-posts {
-  margin-top: 2rem;
+  margin-top: 32px;
+  max-width: 760px;
 }
 
 .related-posts ul {
@@ -161,31 +177,31 @@ pre code {
 }
 
 .related-posts li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 8px;
 }
 
 .comments {
-  margin-top: 2rem;
+  margin-top: 32px;
+  max-width: 760px;
 }
 
 hr {
   border: 0;
   border-top: 1px solid var(--border);
-  margin: 2rem 0;
+  margin: 32px 0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #111216;
-    --panel: #1a1c22;
-    --text: #f1f1f1;
+    --text: #f2f2f2;
     --muted: #a7a7a7;
     --accent: #a391ff;
     --border: rgba(255, 255, 255, 0.12);
   }
 
   .site-header {
-    background: rgba(17, 18, 22, 0.96);
+    background: #111216;
   }
 
   blockquote {
@@ -202,22 +218,19 @@ hr {
 }
 
 @media (max-width: 700px) {
-  .site-header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .page,
-  .post {
-    padding: 1.25rem;
+  .site-header-inner,
+  .site-main,
+  .site-footer-inner {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .page-header h1,
   .post-header h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
-  .site-main {
-    padding: 1.25rem 1rem 2rem;
+  .nav {
+    gap: 12px;
   }
 }
