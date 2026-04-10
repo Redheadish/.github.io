@@ -13,6 +13,7 @@
     <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 
     <nav class="nav">
+      <a href="{{ '/' | relative_url }}">Home</a>
       <a href="{{ '/blog/' | relative_url }}">Blog</a>
       <a href="{{ '/topics/' | relative_url }}">Topics</a>
       <a href="{{ '/tags/' | relative_url }}">Tags</a>
@@ -21,7 +22,7 @@
   </div>
 </header>
 
-<main>
+<main class="site-main">
   {{ content }}
 </main>
 
