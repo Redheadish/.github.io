@@ -45,10 +45,11 @@ a:hover {
 
 .brand {
   display: block;
-  font-size: 1.75rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
 }
 
 .nav {
@@ -59,7 +60,7 @@ a:hover {
 
 .nav a {
   color: var(--muted);
-  font-size: 1rem;
+  font-size: 0,98rem;
 }
 
 .nav a:hover {
@@ -96,9 +97,9 @@ a:hover {
 
 .page-header h1,
 .post-header h1 {
-  margin: 0 0 18px;
-  font-size: 3rem;
-  line-height: 1.05;
+  margin: 0 0 20px;
+  font-size: 2.5rem;
+  line-height: 1.08;
   color: var(--text);
 }
 
@@ -248,9 +249,20 @@ hr {
 
   .page-header h1,
   .post-header h1 {
+    margin: 0 0 20px;
     font-size: 2.2rem;
+    line-height: 1.08;
+    color: var(--text);
+  }
+  
+  .page-header{
+    margin-top: 8px;
   }
 
+  .page-content{
+    font-size: 1.04rem;
+  }
+  
   .nav {
     gap: 12px;
   }
