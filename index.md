@@ -3,9 +3,9 @@ layout: page
 title: ""
 ---
 
-# RedHead-ish Tech Blog
-
-Notes on reliability, networking, virtualization, and infrastructure.
+<p class="home-intro">
+  A personal technical blog on reliability, networking, virtualization, and infrastructure.
+</p>
 
 ## Latest posts
 
