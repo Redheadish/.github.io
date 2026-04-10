@@ -1,0 +1,35 @@
+backend:
+  name: github
+  repo: Redheadish/.github.io
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Categories", name: "categories", widget: "list", default: ["reliability"] }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Language", name: "lang", widget: "select", options: ["en", "ru", "uk"], default: "en" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "About"
+        name: "about"
+        file: "about/index.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+          - { label: "Title", name: "title", widget: "hidden", default: "About" }
+          - { label: "Body", name: "body", widget: "markdown" }
