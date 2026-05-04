@@ -1402,7 +1402,9 @@ VXLAN alone is not a complete scalable fabric.
 
 VXLAN + EVPN creates a control-plane-driven overlay system suitable for modern data-centre networks.
 
-The senior-level understanding is not just “VXLAN is a tunnel”. It is this:
+The real understanding is not “VXLAN is a tunnel.”
+
+
 
 ```text
 A reliable overlay depends on:
