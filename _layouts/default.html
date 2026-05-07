@@ -62,7 +62,7 @@
       element.dataset.goatcounterPath || window.location.pathname
     );
 
-    const counterUrl = goatCounterBase + "/counter/" + encodeURI(path) + ".json";
+    const counterUrl = goatCounterBase + "/counter/" + encodeURIComponent(path) + ".json";
 
     fetch(counterUrl, { cache: "no-store" })
       .then(function (response) {
