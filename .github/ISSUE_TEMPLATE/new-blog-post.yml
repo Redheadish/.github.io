@@ -1,1 +1,39 @@
+name: Quick blog post draft
+description: Paste article text and create a draft article for review
+title: "[POST] "
+labels: ["article-draft"]
 
+body:
+  - type: textarea
+    id: article_text
+    attributes:
+      label: Article text
+      description: |
+        Paste the whole article here.
+
+        Recommended format:
+
+        # Article title
+
+        category: reliability
+        tags: github, automation, jekyll
+
+        Article text...
+
+        You can write normal Markdown:
+        ## Heading
+        - list item
+        - list item
+      placeholder: |
+        # My article title
+
+        category: reliability
+        tags: github, automation, jekyll
+
+        Write or paste the article here.
+
+        ## First section
+
+        Your text...
+    validations:
+      required: true
