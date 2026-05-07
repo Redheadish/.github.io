@@ -14,9 +14,16 @@ layout: default
       </p>
     {% endif %}
 
-    <div class="post-meta">
-      <span>👁 <span data-goatcounter-count="{{ page.url }}">0</span></span>
-    </div>
+   <div class="post-meta">
+  <span class="post-views">
+    👁
+    <span
+      class="js-goatcounter-count"
+      data-goatcounter-path="{{ page.url | relative_url }}"
+      aria-label="Article views"
+    >…</span>
+  </span>
+</div>
   </header>
 
   <section class="post-content">
