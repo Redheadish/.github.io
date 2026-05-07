@@ -40,74 +40,17 @@
   </div>
 </footer>
 
-<!-- GoatCounter: set stable page path -->
+<!-- GoatCounter: stable path for this page -->
 <script>
   window.goatcounter = {
     path: location.pathname || "/"
   };
 </script>
 
-<!-- GoatCounter: main tracking script, records the visit -->
+<!-- GoatCounter: tracking script -->
 <script
   data-goatcounter="https://rh-notes.goatcounter.com/count"
   src="https://gc.zgo.at/count.js">
-</script>
-
-<!-- GoatCounter: show article views as plain text using JSON -->
-<script>
-(function () {
-  function normalisePath(path) {
-    if (!path || path === "") {
-      return "/";
-    }
-
-    try {
-      const url = new URL(path, window.location.origin);
-      return url.pathname;
-    } catch (error) {
-      return path.charAt(0) === "/" ? path : "/" + path;
-    }
-  }
-
-  function initPostViewCounter() {
-    const counter = document.getElementById("goatcounter-views");
-
-    if (!counter) {
-      return;
-    }
-
-    let path = counter.dataset.goatcounterPath || location.pathname || "/";
-    path = normalisePath(path);
-
-    const counterUrl =
-      "https://rh-notes.goatcounter.com/counter/" +
-      encodeURIComponent(path) +
-      ".json";
-
-    fetch(counterUrl, { cache: "no-store" })
-      .then(function (response) {
-        if (!response.ok) {
-          throw new Error("GoatCounter returned HTTP " + response.status);
-        }
-
-        return response.json();
-      })
-      .then(function (data) {
-        counter.textContent = data.count || "0";
-      })
-      .catch(function (error) {
-        counter.textContent = "views unavailable";
-        console.warn("GoatCounter counter error:", error);
-        console.warn("GoatCounter counter URL:", counterUrl);
-      });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initPostViewCounter);
-  } else {
-    initPostViewCounter();
-  }
-})();
 </script>
 
 </body>
