@@ -47,15 +47,28 @@
   };
 </script>
 
-<!-- GoatCounter: main tracking script -->
+<!-- GoatCounter: main tracking script, records the visit -->
 <script
   data-goatcounter="https://rh-notes.goatcounter.com/count"
   src="https://gc.zgo.at/count.js">
 </script>
 
-<!-- GoatCounter: show article views -->
+<!-- GoatCounter: show article views as plain text using JSON -->
 <script>
 (function () {
+  function normalisePath(path) {
+    if (!path || path === "") {
+      return "/";
+    }
+
+    try {
+      const url = new URL(path, window.location.origin);
+      return url.pathname;
+    } catch (error) {
+      return path.charAt(0) === "/" ? path : "/" + path;
+    }
+  }
+
   function initPostViewCounter() {
     const counter = document.getElementById("goatcounter-views");
 
@@ -63,21 +76,30 @@
       return;
     }
 
-    const path = counter.dataset.goatcounterPath || location.pathname || "/";
+    let path = counter.dataset.goatcounterPath || location.pathname || "/";
+    path = normalisePath(path);
 
-    if (window.goatcounter && window.goatcounter.visit_count) {
-      counter.textContent = "";
+    const counterUrl =
+      "https://rh-notes.goatcounter.com/counter/" +
+      encodeURIComponent(path) +
+      ".json";
 
-      window.goatcounter.visit_count({
-        append: "#goatcounter-views",
-        path: path,
-        no_branding: true,
-        type: "html"
+    fetch(counterUrl, { cache: "no-store" })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("GoatCounter returned HTTP " + response.status);
+        }
+
+        return response.json();
+      })
+      .then(function (data) {
+        counter.textContent = data.count || "0";
+      })
+      .catch(function (error) {
+        counter.textContent = "views unavailable";
+        console.warn("GoatCounter counter error:", error);
+        console.warn("GoatCounter counter URL:", counterUrl);
       });
-    } else {
-      counter.textContent = "views unavailable";
-      console.warn("GoatCounter loaded, but visit_count is not available.");
-    }
   }
 
   if (document.readyState === "loading") {
