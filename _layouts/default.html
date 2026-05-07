@@ -40,7 +40,7 @@
   </div>
 </footer>
 
-<!-- GoatCounter: tell it what page/path to count -->
+<!-- GoatCounter: set stable page path -->
 <script>
   window.goatcounter = {
     path: location.pathname || "/"
@@ -53,7 +53,7 @@
   src="https://gc.zgo.at/count.js">
 </script>
 
-<!-- GoatCounter: show article views inside post layout -->
+<!-- GoatCounter: show article views -->
 <script>
 (function () {
   function initPostViewCounter() {
@@ -65,30 +65,19 @@
 
     const path = counter.dataset.goatcounterPath || location.pathname || "/";
 
-    let attempts = 0;
+    if (window.goatcounter && window.goatcounter.visit_count) {
+      counter.textContent = "";
 
-    const timer = setInterval(function () {
-      attempts++;
-
-      if (window.goatcounter && window.goatcounter.visit_count) {
-        clearInterval(timer);
-
-        counter.textContent = "";
-
-        window.goatcounter.visit_count({
-          append: "#goatcounter-views",
-          path: path,
-          no_branding: true,
-          type: "html"
-        });
-      }
-
-      if (attempts > 50) {
-        clearInterval(timer);
-        counter.textContent = "views unavailable";
-        console.warn("GoatCounter did not load or visitor counter is not enabled.");
-      }
-    }, 100);
+      window.goatcounter.visit_count({
+        append: "#goatcounter-views",
+        path: path,
+        no_branding: true,
+        type: "html"
+      });
+    } else {
+      counter.textContent = "views unavailable";
+      console.warn("GoatCounter loaded, but visit_count is not available.");
+    }
   }
 
   if (document.readyState === "loading") {
