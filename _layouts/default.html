@@ -31,8 +31,71 @@
   </div>
 </footer>
 
+<script>
+  window.goatcounter = {
+    path: location.pathname || "/"
+  };
+</script>
+
 <script data-goatcounter="https://rh-notes.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+
+<script>
+(function () {
+  const goatCounterBase = "https://rh-notes.goatcounter.com";
+
+  function normalisePath(path) {
+    if (!path || path === "") {
+      return "/";
+    }
+
+    try {
+      const url = new URL(path, window.location.origin);
+      return url.pathname;
+    } catch (error) {
+      return path.charAt(0) === "/" ? path : "/" + path;
+    }
+  }
+
+  function loadGoatCounterCount(element) {
+    const path = normalisePath(
+      element.dataset.goatcounterPath || window.location.pathname
+    );
+
+    const counterUrl = goatCounterBase + "/counter/" + encodeURI(path) + ".json";
+
+    fetch(counterUrl, { cache: "no-store" })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("GoatCounter count is not available for this path yet.");
+        }
+
+        return response.json();
+      })
+      .then(function (data) {
+        element.textContent = data.count || "0";
+      })
+      .catch(function () {
+        element.textContent = "0";
+        element.title = "Counter is not available yet.";
+      });
+  }
+
+  function initGoatCounterCounts() {
+    const counters = document.querySelectorAll(".js-goatcounter-count");
+
+    counters.forEach(function (counter) {
+      loadGoatCounterCount(counter);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initGoatCounterCounts);
+  } else {
+    initGoatCounterCounts();
+  }
+})();
+</script>
 
 </body>
 </html>
