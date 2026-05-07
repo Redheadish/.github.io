@@ -47,11 +47,65 @@
   };
 </script>
 
-<!-- GoatCounter: tracking script -->
+<!-- GoatCounter: tracking script. This creates the first /count ping -->
 <script
   data-goatcounter="https://rh-notes.goatcounter.com/count"
   src="https://gc.zgo.at/count.js">
 </script>
 
+<!-- GoatCounter: show article views using JSON counter -->
+<script>
+(function () {
+  function initPostViewCounter() {
+    const counter = document.getElementById("goatcounter-views");
+
+    // No counter element = not a post page, so do nothing.
+    if (!counter) {
+      return;
+    }
+
+    let path = "";
+
+    // Best option: use GoatCounter's own detected path.
+    if (window.goatcounter && window.goatcounter.get_data) {
+      path = window.goatcounter.get_data()["p"];
+    }
+
+    // Fallback: use the path from post.html.
+    if (!path) {
+      path = counter.dataset.goatcounterPath || location.pathname || "/";
+    }
+
+    const counterUrl =
+      "https://rh-notes.goatcounter.com/counter/" +
+      encodeURIComponent(path) +
+      ".json";
+
+    fetch(counterUrl, { cache: "no-store" })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("GoatCounter returned HTTP " + response.status);
+        }
+
+        return response.json();
+      })
+      .then(function (data) {
+        counter.textContent = data.count || "0";
+      })
+      .catch(function (error) {
+        counter.textContent = "views unavailable";
+        console.warn("GoatCounter counter error:", error);
+        console.warn("GoatCounter path:", path);
+        console.warn("GoatCounter counter URL:", counterUrl);
+      });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPostViewCounter);
+  } else {
+    initPostViewCounter();
+  }
+})();
+</script>
 </body>
 </html>
