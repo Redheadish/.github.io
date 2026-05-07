@@ -1,39 +1,22 @@
-name: Quick blog post draft
-description: Paste article text and create a draft article for review
-title: "[POST] "
-labels: ["article-draft"]
-
-body:
   - type: textarea
-    id: article_text
+    id: markdown_body
     attributes:
-      label: Article text
-      description: |
-        Paste the whole article here.
-
-        Recommended format:
-
-        # Article title
-
-        category: reliability
-        tags: github, automation, jekyll
-
-        Article text...
-
-        You can write normal Markdown:
-        ## Heading
-        - list item
-        - list item
+      label: Markdown body
+      description: Paste your article body here. You write the Markdown; the workflow will create the front matter, file name, preview page and PR.
       placeholder: |
-        # My article title
+        Write or paste your article here.
 
-        category: reliability
-        tags: github, automation, jekyll
+        You can use Markdown:
 
-        Write or paste the article here.
+        ## Section title
 
-        ## First section
+        Paragraph text...
 
-        Your text...
+        - list item
+        - list item
+
+        ```bash
+        example command
+        ```
     validations:
       required: true
